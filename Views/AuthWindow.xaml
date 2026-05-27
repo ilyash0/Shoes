@@ -1,0 +1,71 @@
+﻿<Window x:Class="Shoes.AuthWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Shoes"
+        mc:Ignorable="d"
+        Title="Авторизация"
+        Height="450"
+        Width="800"
+        Icon="/Resources/Icon.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="9*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"
+              Background="#7FFF00">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0"
+                   Source="/Resources/Icon.png"
+                   Width="32"
+                   Height="32"
+                   Stretch="Uniform"
+                   VerticalAlignment="Center"
+                   Margin="10px 0 0 0" />
+
+            <TextBlock Grid.Column="1"
+                       Text="Авторизация"
+                       FontWeight="Bold"
+                       FontSize="24"
+                       VerticalAlignment="Center"
+                       Margin="15,0,0,0" />
+        </Grid>
+        <StackPanel Grid.Row="1"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Width="280">
+
+            <TextBlock Margin="0,0,0,5"
+                       Text="Почта" />
+            <TextBox Name="emailEnter"
+                     Padding="5" />
+            
+            <TextBlock Text="Пароль"
+                       Margin="0,0,0,5" />
+            <PasswordBox Name="passwordEnter"
+                         Padding="5"
+                         Margin="0,0,0,25" />
+            <Button Content="Войти"
+                    Padding="10"
+                    Margin="0,0,0,10"
+                    BorderThickness="0"
+                    FontWeight="Bold"
+                    Click="EnterClick" />
+
+            <Button Content="Войти как гость"
+                    Padding="10"
+                    Background="Transparent"
+                    Click="GuestClick" />
+
+        </StackPanel>
+
+    </Grid>
+</Window>

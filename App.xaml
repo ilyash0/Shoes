@@ -1,0 +1,22 @@
+﻿<Application x:Class="Shoes.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Shoes"
+             StartupUri="Views/AuthWindow.xaml">
+    <Application.Resources>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily"
+                    Value="Times New Roman" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontFamily"
+                    Value="Times New Roman" />
+        </Style>
+        
+        <Style TargetType="Button">
+            <Setter Property="Background"
+                    Value="#00FA9A" />
+        </Style>
+    </Application.Resources>
+</Application>
