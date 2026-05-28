@@ -49,13 +49,13 @@ public partial class Product
         }
     }
 
-    public virtual Manufacturer Manufacturer { get; set; } = null!;
+    public virtual Manufacturer? Manufacturer { get; set; } = null!;
 
-    public virtual Mesurment Mesurment { get; set; } = null!;
+    public virtual Mesurment? Mesurment { get; set; } = null!;
 
     public virtual ICollection<OrderProduct> OrderProducts { get; set; } = new List<OrderProduct>();
 
-    public virtual ProductCategory ProductCategory { get; set; } = null!;
+    public virtual ProductCategory? ProductCategory { get; set; } = null!;
 
-    public virtual Supplier Supplier { get; set; } = null!;
+    public virtual Supplier? Supplier { get; set; } = null!;
 }

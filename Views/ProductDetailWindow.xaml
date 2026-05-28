@@ -1,0 +1,164 @@
+﻿<Window x:Class="Shoes.Views.ProductDetailWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Shoes.Views"
+        mc:Ignorable="d"
+        Title="Новый товар"
+        Height="600"
+        Width="450"
+        Icon="/Resources/Icon.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="8*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"
+              Background="#7FFF00">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0"
+                   Source="/Resources/Icon.png"
+                   Width="32"
+                   Height="32"
+                   Stretch="Uniform"
+                   VerticalAlignment="Center"
+                   Margin="10 0 0 0" />
+
+            <TextBlock Name="title"
+                       Grid.Column="1"
+                       Text="Новый товар"
+                       FontWeight="Bold"
+                       FontSize="24"
+                       VerticalAlignment="Center"
+                       Margin="15 0 0 0" />
+        </Grid>
+
+        <ScrollViewer Grid.Row="1"
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled">
+            <StackPanel Margin="20,15">
+                <TextBlock Name="idBlock"
+                           Text="Id"
+                           Margin="0 12 0 3" />
+                <TextBox   Name="idTextBox"
+                           IsReadOnly="True"
+                           Margin="0 0 0 12" />
+
+                <TextBlock Text="Артикль товара"
+                           Margin="0 0 0 3" />
+                <TextBox  Name="articleTextBox"
+                          Padding="5"
+                          Margin="0 0 0 12" />
+
+                <TextBlock Text="Наименование товара"
+                           Margin="0 0 0 3" />
+                <TextBox  Name="nameTextBox"
+                          Padding="5"
+                          Margin="0 0 0 12" />
+
+                <TextBlock Text="Описание товара"
+                           Margin="0 0 0 3" />
+                <TextBox  Name="descriptionTextBox"
+                          Margin="0 0 0 12"
+                          TextWrapping="Wrap"
+                          AcceptsReturn="True"
+                          Height="60"
+                          VerticalContentAlignment="Top" />
+
+                <TextBlock Text="Фото товара"
+                           Margin="0 0 0 3" />
+                <Image Name="imagePrint"
+                       Margin="0 0 0 3" />
+                <Button Content="Выбрать изоражение"
+                        Click="ChangeImageClick"
+                        Margin="0 0 0 12" />
+
+                <TextBlock Text="Категория"
+                           Margin="0 0 0 3" />
+                <ComboBox  Name="categoryComboBox"
+                           Padding="5"
+                           Margin="0 0 0 12"
+                           SelectedValuePath="Id"
+                           DisplayMemberPath="Name" />
+
+                <TextBlock Text="Производитель"
+                           Margin="0 0 0 3" />
+                <ComboBox  Name="manufacturerComboBox"
+                           Padding="5"
+                           Margin="0 0 0 12"
+                           SelectedValuePath="Id"
+                           DisplayMemberPath="Name" />
+
+                <TextBlock Text="Поставщик"
+                           Margin="0 0 0 3" />
+                <ComboBox  Name="supplierComboBox"
+                           Padding="5"
+                           Margin="0 0 0 12"
+                           SelectedValuePath="Id"
+                           DisplayMemberPath="Name" />
+
+                <TextBlock Text="Цена"
+                           Margin="0 0 0 3" />
+                <TextBox  Name="priceTextBox"
+                          Padding="5"
+                          Margin="0 0 0 12" />
+
+                <TextBlock Text="Единиица измерения"
+                           Margin="0 0 0 3" />
+                <ComboBox  Name="measurementComboBox"
+                           Padding="5"
+                           Margin="0 0 0 12"
+                           SelectedValuePath="Id"
+                           DisplayMemberPath="Name" />
+
+                <TextBlock Text="Количество на складе"
+                           Margin="0 0 0 3" />
+                <TextBox Name="countTextBox"
+                         Padding="5"
+                         Margin="0 0 0 12" />
+
+                <TextBlock Text="Действующая скидка"
+                           Margin="0 0 0 3" />
+                <TextBox  Name="discountTextBox"
+                          Padding="5"
+                          Margin="0 0 0 12" />
+            </StackPanel>
+        </ScrollViewer>
+
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Button Name="deleteButton"
+                    Content="Удалить"
+                    Padding="10"
+                    Margin="10"
+                    BorderThickness="0"
+                    Background="OrangeRed"
+                    Click="DeleteClick" />
+            
+            <Button Content="Отмена"
+                    Padding="10"
+                    Margin="10"
+                    Background="Transparent"
+                    Click="CancelClick" />
+
+            <Button Content="Сохранить"
+                    Padding="10"
+                    Margin="10"
+                    BorderThickness="0"
+                    FontWeight="Bold"
+                    Click="SaveClick" />
+
+        </StackPanel>
+    </Grid>
+</Window>

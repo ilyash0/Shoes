@@ -15,10 +15,10 @@ using System.Windows.Shapes;
 
 namespace Shoes.Views
 {
-    public partial class ProductWindow : Window
+    public partial class ProductsListWindow : Window
     {
         User? authUser = null;
-        public ProductWindow(User? user = null)
+        public ProductsListWindow(User? user = null)
         {
             InitializeComponent();
             authUser = user;
@@ -28,6 +28,11 @@ namespace Shoes.Views
                 if (authUser.RoleId == 1 || authUser.RoleId == 2)
                 {
                     searchBox.Visibility = Visibility.Visible;
+                    adminPanel.Visibility = Visibility.Visible;
+                }
+                if (authUser.RoleId == 1)
+                {
+                    addButton.Visibility = Visibility.Visible;
                 }
             }
 
@@ -51,7 +56,7 @@ namespace Shoes.Views
             this.Close();
         }
 
-        private void UpdateList()
+        public void UpdateList()
         {
             if (productList.ItemsSource != null)
             {
@@ -84,5 +89,28 @@ namespace Shoes.Views
             }
         }
 
+        private void AddClick(object sender, RoutedEventArgs e)
+        {
+            ProductDetailWindow productDetailWindow = new ProductDetailWindow();
+            productDetailWindow.Owner = this;
+            productDetailWindow.ShowDialog();
+        }
+
+        private void OrderClick(object sender, RoutedEventArgs e)
+        {
+            OrdersListWindow ordersListWindow = new OrdersListWindow(authUser);
+            ordersListWindow.Show();
+            this.Close();
+        }
+
+        private void ProductListMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (authUser != null && authUser.RoleId == 1)
+            {
+                ProductDetailWindow productDetailWindow = new ProductDetailWindow((Product)productList.SelectedItem);
+                productDetailWindow.Owner = this;
+                productDetailWindow.ShowDialog();
+            }
+        }
     }
 }

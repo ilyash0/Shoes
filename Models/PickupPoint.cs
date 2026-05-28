@@ -13,6 +13,8 @@ public partial class PickupPoint
 
     public string House { get; set; } = null!;
 
+    public string FullAddress => $"{Town}, ул. {Street}, д. {House}, {Article}";
+
     public int Article { get; set; }
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();

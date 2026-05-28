@@ -27,7 +27,7 @@ namespace Shoes
             User? authUser = DbControl.GetAuthUser(emailEnter.Text, passwordEnter.Password);
             if (authUser != null)
             {
-                ProductWindow productWindow = new ProductWindow(authUser);
+                ProductsListWindow productWindow = new ProductsListWindow(authUser);
                 productWindow.Show();
                 this.Close();
             }
@@ -38,7 +38,7 @@ namespace Shoes
         }
         private void GuestClick(object sender, RoutedEventArgs e)
         {
-            ProductWindow productWindow = new ProductWindow();
+            ProductsListWindow productWindow = new ProductsListWindow();
             productWindow.Show();
             this.Close();
         }
